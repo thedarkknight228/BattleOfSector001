@@ -6,7 +6,7 @@ public class OpeningCredits : MonoBehaviour
 	public Texture Credits;
 	public Texture Logo;
 	private float CreditHeightMove = 0.25f;
-	public float Count = 25;
+	public float Count = 9;
 	public OpeningTitles OpeningTitlesScript;
 	
 	// Use this for initialization
@@ -21,12 +21,13 @@ public class OpeningCredits : MonoBehaviour
 		Debug.Log (Count);
 		if (Count > 0) 
 		{
-			CreditHeightMove -= 0.001f;
+			CreditHeightMove -= 0.003f;
 		} 
 		else 
 		{
-			gameObject.SetActive(false);
-			OpeningTitlesScript.gameObject.SetActive(true);
+			Application.LoadLevel (1);
+			//gameObject.SetActive(false);
+			//OpeningTitlesScript.gameObject.SetActive(true);
 		}
 	}
 
