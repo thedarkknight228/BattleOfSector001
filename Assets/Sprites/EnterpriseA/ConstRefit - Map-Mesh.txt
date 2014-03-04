@@ -1,0 +1,25 @@
+Constitution Refit by Raul Mamoru 
+Mail to: raul.mamoru@gmail.com
+
+Mesh(es) Name = Related maps
+
+BgdDIs = Diffuse Slot: Bridge VIP Recreat Diffuse.tif / Self-Illumination Slot: Bridge VIP Recreat Mask.tif  !Please, Check 'on' the "Color" toggle! / Specular Level Slot: Bridge VIP Recreat Tiles.tif
+
+DscDwn = Diffuse:No Map:Simple White Color / Specular Level Slot: DiscoDown Tile 2.tif
+
+DscUp = Diffuse:No Map:Simple White Color / Specular Level Slot: DiscoUp Tile 2.tif
+
+DslImps = Diffuse Slot: ImpulseDorsal Diffuse.tif / Self-Illumination Slot: ImpulseDorsal Mask.tif  !Please, Check 'on' the "Color" toggle! / ImpulseDorsal Tile.tif
+
+Engs = Diffuse Slot: Engenharia Planes Diffuse.tif / Self-Illumination Slot: Engenharia Planes Mask.tif  !Please, Check 'on' the "Color" toggle! / Engenharia Planes Tile.tif
+
+Intrr (Please, Invert the Normal faces of this mesh) = Diffuse Slot+Self-Illumination Slot: Interior4a.tif  !Please, Check 'OFF' the "Color" toggle! Value:100
+
+PilTrps = Diffuse Slot: TorpedeiroPilones Diffuse.tif / Self-Illumination Slot: TorpedeiroPilones Mask.tif  !Please, Check 'on' the "Color" toggle! / TorpedeiroPilones Tile.tif
+
+RndAzl = Diffuse Slot: Eng Circulares Diffuse.tif / Specular Level Slot: Eng Circulares Tile.tif
+
+WDs = Diffuse Slot: WD Difuse.tif / Self-Illumination Slot: WD Mask.tif !Please, Check 'on' the "Color" toggle! / WD Tiles.tif
+
+WndTrsp = Diffuse:No Map:Simple White Color / Opacity:0 / Spec.Level:90 / Glossiness:25
+
