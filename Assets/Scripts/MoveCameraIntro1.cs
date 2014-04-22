@@ -25,6 +25,6 @@ public class MoveCameraIntro1 : MonoBehaviour
 
 	void ChangeScene()
 	{
-		Application.LoadLevel (2);
+		Application.LoadLevel (1);
 	}
 }

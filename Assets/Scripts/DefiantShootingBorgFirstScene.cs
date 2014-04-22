@@ -18,6 +18,6 @@ public class DefiantShootingBorgFirstScene : MonoBehaviour
 
 	void NextScene()
 	{
-		Application.LoadLevel (6);
+		Application.LoadLevel (7);
 	}
 }

@@ -13,12 +13,12 @@ public class MovePlanetIntro2 : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		transform.position += new Vector3 (-0.38f, -0.23f, 0.00000000001f);
+		transform.position += new Vector3 (-0.36f, -0.2f, 0.00000000001f);
 		Invoke ("ChangeScene", 6.8f);
 	}
 
 	void ChangeScene()
 	{
-		Application.LoadLevel (3);
+		Application.LoadLevel (2);
 	}
 }
