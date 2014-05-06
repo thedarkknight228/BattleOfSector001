@@ -65,13 +65,13 @@ namespace BGE.Scenarios
                 recalculate = true;
             }
 
-            GameObject camera = (GameObject) GameObject.FindGameObjectWithTag("MainCamera");
+            //GameObject camera = (GameObject) GameObject.FindGameObjectWithTag("MainCamera");
 
             if (Input.GetMouseButton(0))
             {
-                Plane worldPlane = new Plane(new Vector3(0, 1, 0), 0);
+                //Plane worldPlane = new Plane(new Vector3(0, 1, 0), 0);
                 //Ray ray = new Ray(camera.transform.position, camera.transform.forward);
-                float distance = 0;
+                //float distance = 0;
                 /*if (worldPlane.Raycast(ray, out distance))
                 {
                     targetPos = camera.transform.position + (camera.transform.forward * distance);

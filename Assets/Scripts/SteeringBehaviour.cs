@@ -4,6 +4,12 @@ using System.Collections.Generic;
 using System;
 using BGE.Geom;
 
+/// <summary>
+/// 
+/// This script is not been used
+/// 
+/// </summary>
+
 public class SteeringBehaviour : MonoBehaviour 
 {
 	public bool Seek, Evade, ObstacleAvoidance, OffsetPursuit, Pursue, Flee, RandomWalk, Wander, Arrive, FollowPath, SphereConstrain = false;

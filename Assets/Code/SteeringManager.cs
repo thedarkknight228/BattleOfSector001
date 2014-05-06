@@ -4,6 +4,12 @@ using System.Collections.Generic;
 using System.Text;
 using BGE.Scenarios;
 
+/// <summary>
+/// 
+/// Used in scenes 6 and 8
+/// 
+/// </summary>
+
 namespace BGE
 {
     
@@ -22,6 +28,8 @@ namespace BGE
 		public GameObject Ship2Prefab;
 
         static SteeringManager instance;
+
+		public int CurrentLevel = 0;
         // Use this for initialization
         GUIStyle style = new GUIStyle();
 
@@ -34,6 +42,7 @@ namespace BGE
 
         void Start()
         {
+			CurrentLevel = Application.loadedLevel;
 			Vector3[] points = new Vector3[3];
 			points[0] = new Vector3(1, 1, 1);
 			points[1] = new Vector3(1, 2, 0);
@@ -54,6 +63,10 @@ namespace BGE
             scenarios.Add(new FlockingScenario());
             scenarios.Add(new StateMachineScenario());
             scenarios.Add(new PathFindingScenario());*/
+
+
+
+			// Adding the scenarios to the list
 			scenarios.Add(new PathFollowingScenario());
 			scenarios.Add(new ArriveScenario());
 			scenarios.Add(new PursueScenario());
@@ -62,8 +75,22 @@ namespace BGE
 			scenarios.Add(new FlockingScenario());
 			scenarios.Add(new StateMachineScenario());
 			scenarios.Add(new PathFindingScenario());
-            currentScenario = scenarios[0];
-            currentScenario.Start();
+
+			// If the current scene that is loaded is 6 it playes the scenario 1
+			if(CurrentLevel == 6)
+			{
+				currentScenario = scenarios[0];
+				currentScenario.Start();
+			}
+
+			// If the current scene that is loaded is 8 it playes the scenario 3
+			if(CurrentLevel == 8)
+			{
+				currentScenario = scenarios[2];
+				currentScenario.Start();
+			}
+            //currentScenario = scenarios[0];
+            //currentScenario.Start();
 
         }
 
@@ -173,6 +200,7 @@ namespace BGE
             {
                 PrintMessage("Press " + i + " for " + scenarios[i].Description());
             }*/
+
 
             if (camFollowing)
             {

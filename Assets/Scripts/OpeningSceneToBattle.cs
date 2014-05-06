@@ -1,6 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// 
+/// This script is not been used
+/// 
+/// </summary>
+
 public class OpeningSceneToBattle : MonoBehaviour 
 {
 	public Texture Cockpit;
@@ -17,7 +23,6 @@ public class OpeningSceneToBattle : MonoBehaviour
 		BackgroundSound = GameObject.FindGameObjectWithTag ("OpeningScene");
 		if (!BackgroundSound.audio.isPlaying) 
 		{
-			Debug.Log("Inside Loop");
 			Application.LoadLevel(2);
 		}
 	}

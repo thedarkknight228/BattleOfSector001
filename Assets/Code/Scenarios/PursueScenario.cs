@@ -4,6 +4,12 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
+/// <summary>
+/// 
+/// This script is being used for scene 8
+/// 
+/// </summary>
+
 namespace BGE.Scenarios
 {
     class PursueScenario : Scenario
@@ -15,15 +21,25 @@ namespace BGE.Scenarios
         public override void Start()
         {
             Params.Load("default.txt");
-            leader = CreateBoid(new Vector3(10, 5, 60), leaderPrefab);
+
+			// Setting the inital starting position of the leader ship
+            leader = CreateBoid(new Vector3(-87, 2.4f, 386), leaderPrefab);
+			// Setting the scale of the ship
+			leader.transform.localScale = new Vector3 (0.015f,0.015f,0.015f);
+			// Setting the initial starting position of the random walk target
+			leader.GetComponent<SteeringBehaviours> ().randomWalkTarget = leader.transform.position;
 			leader.GetComponent<SteeringBehaviours> ().RandomWalkEnabled = true;
-            leader.GetComponent<SteeringBehaviours>().seekTargetPos = new Vector3(100, 5, 100);
+			leader.GetComponent<SteeringBehaviours> ().ObstacleAvoidanceEnabled = true;
 
-            GameObject boid = CreateBoid(new Vector3(25, 5, 50), boidPrefab);
-			boid.GetComponent<SteeringBehaviours> ().PursuitEnabled = true;
-            boid.GetComponent<SteeringBehaviours>().leader = leader;
+			// The same as above for different ship and different location
+			Ship2 = CreateBoid(new Vector3(-85.0f, 2.4f, 386), Ship2Prefab);
+			Ship2.transform.localScale = new Vector3 (0.015f,0.015f,0.015f);
+			Ship2.GetComponent<SteeringBehaviours> ().randomWalkTarget = Ship2.transform.position;
+			Ship2.GetComponent<SteeringBehaviours> ().RandomWalkEnabled = true;
+			Ship2.GetComponent<SteeringBehaviours> ().ObstacleAvoidanceEnabled = true;
 
-            CreateCamFollower(boid, new Vector3(0, 5, -10));
+
+            //CreateCamFollower(boid, new Vector3(0, 5, -10));
         }
     }
 }

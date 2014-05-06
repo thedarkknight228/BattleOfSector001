@@ -398,12 +398,12 @@ namespace BGE
             foreach (GameObject o in obstacles)
             {
                 float radius = o.renderer.bounds.extents.magnitude;
-                Sphere sphere = new Sphere(radius, o.transform.position);
+                //Sphere sphere = new Sphere(radius, o.transform.position);
                 BGE.Geom.Ray ray = new BGE.Geom.Ray();
                 ray.look = point1 - point0;
                 ray.look.Normalize();
                 ray.pos = point0;
-                Vector3 intersectionPoint = new Vector3();
+                //Vector3 intersectionPoint = new Vector3();
                /* if (sphere.closestRayIntersects(ray, point0, ref intersectionPoint))
                 {
                     float dist = (intersectionPoint - point0).magnitude;

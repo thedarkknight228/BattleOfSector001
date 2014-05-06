@@ -1,6 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+///
+/// This file is not used 
+/// at all. 
+/// 
+/// </summary>
+
 public class OpeningTitles : MonoBehaviour 
 {
 	public Texture Words;

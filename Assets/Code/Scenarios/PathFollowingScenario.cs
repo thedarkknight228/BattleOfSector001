@@ -4,6 +4,14 @@ using System.Collections.Generic;
 using System;
 using BGE.Geom;
 
+/// <summary>
+/// 
+/// This script was changed to add in new way points to suit my scene 6 
+/// Then there is an extra ship added to the scene also.
+/// All the ships have there own waypoints to move around. 
+/// 
+/// </summary>
+
 namespace BGE.Scenarios
 {
     class PathFollowingScenario : Scenario
@@ -14,14 +22,16 @@ namespace BGE.Scenarios
         }
         static Vector3 initialPos = Vector3.zero;
 		static Vector3 initialPos2 = Vector3.zero;
+		public float Count = 0.0f;
+		private bool exit = false;
 
         public override void Start()
         {
             Params.Load("default.txt");
 	
             leader = CreateBoid(new Vector3(-20, 5, 50), leaderPrefab);
-			Ship2 = CreateBoid(new Vector3(-100, 0, 50), Ship2Prefab);
-			GameObject ship3 = CreateBoid(new Vector3(-100, 0, 200), Ship2Prefab);
+			Ship2 = CreateBoid(new Vector3(-100, 0, 100), Ship2Prefab);
+			GameObject ship3 = CreateBoid(new Vector3(-100, 0, 0), Ship2Prefab);
 
             if (initialPos == Vector3.zero && initialPos2 == Vector3.zero)
             {
@@ -113,6 +123,19 @@ namespace BGE.Scenarios
 			}
 			
 			GroundEnabled(true);
+		}
+
+		public override void Update ()
+		{
+			Count += Time.deltaTime;
+			if(Count >= 5 && !exit)
+			{
+				Ship2.GetComponent<SteeringBehaviours>().turnOffAll();
+				Ship2.SetActive(false);
+				Ship2.gameObject.SetActive(false);
+				//Ship2.renderer.enabled = false;
+				exit = true;
+			}
 		}
 	}
 }

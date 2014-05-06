@@ -4,6 +4,13 @@ using System.Collections.Generic;
 using System;
 using BGE.Geom;
 
+/// <summary>
+/// 
+/// The functions that are changed here are random walk enabled to allow the ship to move slower in the scene
+/// Then the random walk function was changed to give it new random position coordinates to suit scene 8
+/// 
+/// </summary>
+
 namespace BGE
 {
 	public class SteeringBehaviours : MonoBehaviour
@@ -11,6 +18,7 @@ namespace BGE
 		public Vector3 force;
 		public Vector3 velocity;
 		public Vector3 acceleration;
+		public GUIStyle style;
 		
 		public float defaultRadius = 5.0f;
 		
@@ -28,7 +36,7 @@ namespace BGE
 		private Vector3 wanderTargetPos;
 		public Vector3 seekTargetPos;
 		public Vector3 offset;
-		private Vector3 randomWalkTarget;
+		public Vector3 randomWalkTarget;
 		public Path path = new Path();
 		public float maxSpeed;
 		
@@ -287,7 +295,7 @@ namespace BGE
 			
 			if (RandomWalkEnabled)
 			{
-				force = RandomWalk() * Params.GetWeight("random_walk_weight");
+				force = RandomWalk() * 0.009f; // Params.GetWeight("random_walk_weight");
 				if (!accumulateForce(ref steeringForce, force))
 				{
 					return steeringForce;
@@ -555,12 +563,15 @@ namespace BGE
 		
 		Vector3 RandomWalk()
 		{
+			Debug.Log (randomWalkTarget);
 			float dist = (transform.position - randomWalkTarget).magnitude;
-			if (dist < 50)
+			if (dist < 1)
 			{
-				randomWalkTarget.x = Utilities.RandomClamped() * Params.GetFloat("world_range");
-				randomWalkTarget.y = Utilities.RandomClamped(0, Params.GetFloat("world_range") / 2.0f);
-				randomWalkTarget.z = Utilities.RandomClamped() * Params.GetFloat("world_range");
+				// New random range for the ship to move in the scene
+				randomWalkTarget.x = Utilities.RandomClamped(-86.8f, -86.3f);// * 0.0001f;//Params.GetFloat("world_range");
+				randomWalkTarget.y = Utilities.RandomClamped(2.40001f,2.4f);// * 0.0001f; //Params.GetFloat("world_range") / 2.0f);
+				randomWalkTarget.z = Utilities.RandomClamped(387.7f,387.4f);// * 0.0001f;//Params.GetFloat("world_range");
+
 			}
 			return Seek(randomWalkTarget);
 		}
@@ -630,7 +641,7 @@ namespace BGE
 			Vector3 desired = clamped * (toTarget / distance);
 			if (Params.drawDebugLines)
 			{
-				LineDrawer.DrawTarget(target, Color.gray);
+				LineDrawer.DrawTarget(target, Color.red);
 			}
 			Utilities.checkNaN(desired);
 			

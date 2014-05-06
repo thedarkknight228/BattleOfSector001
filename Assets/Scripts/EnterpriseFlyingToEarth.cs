@@ -1,6 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// 
+/// This script is not been used
+/// 
+/// </summary>
+
 public class EnterpriseFlyingToEarth : MonoBehaviour
 {
 	public Texture Sky;
